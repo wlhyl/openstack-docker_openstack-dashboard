@@ -5,6 +5,11 @@ if [ -z "$KEYSTONE_ENDPOINT" ];then
   exit 1
 fi
 
+if [ -z "$OPENSTACK_KEYSTONE_DEFAULT_ROLE" ];then
+  echo "error: OPENSTACK_KEYSTONE_DEFAULT_ROLE not set"
+  exit 1
+fi
+
 if [ ! -f /etc/openstack-dashboard/.complete ];then
         
     sed -i /OPENSTACK_HOST/s/127.0.0.1/$KEYSTONE_ENDPOINT/ /etc/openstack-dashboard/local_settings.py
@@ -18,7 +23,7 @@ if [ ! -f /etc/openstack-dashboard/.complete ];then
     echo \ \ } >> /etc/openstack-dashboard/local_settings.py
     echo } >> /etc/openstack-dashboard/local_settings.py
     
-    sed -i /OPENSTACK_KEYSTONE_DEFAULT_ROLE/s/_member_/user/g  /etc/openstack-dashboard/local_settings.py
+    sed -i /OPENSTACK_KEYSTONE_DEFAULT_ROLE/s/_member_/$OPENSTACK_KEYSTONE_DEFAULT_ROLE/g  /etc/openstack-dashboard/local_settings.py
     sed -i '/TIME_ZONE/s/UTC/Asia\/Chongqing/g'  /etc/openstack-dashboard/local_settings.py
     
     touch /etc/openstack-dashboard/.complete

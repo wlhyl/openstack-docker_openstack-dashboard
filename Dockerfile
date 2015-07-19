@@ -16,6 +16,8 @@ RUN apt-get clean
 
 RUN env --unset=DEBIAN_FRONTEND
 
+RUN /usr/sbin/a2ensite openstack-dashboard
+
 ADD entrypoint.sh /usr/bin/entrypoint.sh
 RUN chmod +x /usr/bin/entrypoint.sh
 

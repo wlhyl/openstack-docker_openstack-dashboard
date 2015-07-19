@@ -17,9 +17,9 @@ if [ ! -f /etc/openstack-dashboard/.complete ];then
     sed -i /^CACHES/,+4d /etc/openstack-dashboard/local_settings.py
     
     echo CACHES = { >> /etc/openstack-dashboard/local_settings.py
-    echo \ \ 'default':\ { >> /etc/openstack-dashboard/local_settings.py
-    echo \ \ \ \ 'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache', >> /etc/openstack-dashboard/local_settings.py
-    echo \ \ \ \ 'LOCATION': '127.0.0.1:11211', >> /etc/openstack-dashboard/local_settings.py
+    echo \ \ \'default\':\ { >> /etc/openstack-dashboard/local_settings.py
+    echo \ \ \ \ \'BACKEND\': \'django.core.cache.backends.memcached.MemcachedCache\', >> /etc/openstack-dashboard/local_settings.py
+    echo \ \ \ \ \'LOCATION\': \'127.0.0.1:11211\', >> /etc/openstack-dashboard/local_settings.py
     echo \ \ } >> /etc/openstack-dashboard/local_settings.py
     echo } >> /etc/openstack-dashboard/local_settings.py
     

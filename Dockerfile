@@ -26,6 +26,10 @@ RUN chmod +x /usr/bin/entrypoint.sh
 ADD dashboard.conf /etc/supervisor/conf.d/dashboard.conf
 ADD memcached.conf /etc/supervisor/conf.d/memcached.conf
 
+RUN cp -rp /etc/openstack-dashboard/ /openstack-dashboard
+
+VOLUME ["/etc/openstack-dashboard/"]
+
 EXPOSE 80
 
 ENTRYPOINT ["/usr/bin/entrypoint.sh"]

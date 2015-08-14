@@ -11,7 +11,7 @@ if [ -z "$OPENSTACK_KEYSTONE_DEFAULT_ROLE" ];then
 fi
 
 if [ ! -f /etc/openstack-dashboard/.complete ];then
-        
+    cp -rp /openstack-dashboard/* /etc/openstack-dashboard/
     sed -i /OPENSTACK_HOST/s/127.0.0.1/$KEYSTONE_ENDPOINT/ /etc/openstack-dashboard/local_settings.py
     echo ALLOWED_HOSTS = [\'*\', ] >> /etc/openstack-dashboard/local_settings.py
     sed -i /^CACHES/,+4d /etc/openstack-dashboard/local_settings.py

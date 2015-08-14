@@ -2,6 +2,9 @@
 - KEYSTONE_ENDPOINT: keystone endpoint
 - OPENSTACK_KEYSTONE_DEFAULT_ROLE: role
 
+# volumes:
+- /opt/openstack/openstack-dashboard: /etc/openstack-dashboard
+
 # 启动openstack-dashboard
 ```bash
 docker run -d --name openstack-dashboard -p 80:80 \

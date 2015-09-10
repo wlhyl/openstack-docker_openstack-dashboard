@@ -16,6 +16,7 @@ if [ ! -f /etc/openstack-dashboard/.complete ];then
     echo ALLOWED_HOSTS = [\'*\', ] >> /etc/openstack-dashboard/local_settings.py
     sed -i /^CACHES/,+4d /etc/openstack-dashboard/local_settings.py
     
+    echo SESSION_ENGINE = \'django.contrib.sessions.backends.cache\' >> /etc/openstack-dashboard/local_settings.py
     echo CACHES = { >> /etc/openstack-dashboard/local_settings.py
     echo \ \ \'default\':\ { >> /etc/openstack-dashboard/local_settings.py
     echo \ \ \ \ \'BACKEND\': \'django.core.cache.backends.memcached.MemcachedCache\', >> /etc/openstack-dashboard/local_settings.py

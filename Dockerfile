@@ -11,7 +11,7 @@ ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update
 RUN apt-get dist-upgrade -y
-RUN apt-get -t jessie-backports install openstack-dashboard apache2 -y
+RUN apt-get install openstack-dashboard apache2 -y
 RUN apt-get clean
 
 RUN env --unset=DEBIAN_FRONTEND
@@ -24,7 +24,6 @@ ADD entrypoint.sh /usr/bin/entrypoint.sh
 RUN chmod +x /usr/bin/entrypoint.sh
 
 ADD dashboard.conf /etc/supervisor/conf.d/dashboard.conf
-ADD memcached.conf /etc/supervisor/conf.d/memcached.conf
 
 RUN cp -rp /etc/openstack-dashboard/ /openstack-dashboard
 

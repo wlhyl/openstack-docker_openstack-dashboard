@@ -22,7 +22,7 @@ if [ ! -f /etc/openstack-dashboard/.complete ];then
     grep ^ALLOWED_HOSTS >/dev/null 2>/dev/null /etc/openstack-dashboard/local_settings.py && sed -i /^ALLOWED_HOSTS/d /etc/openstack-dashboard/local_settings.py
     echo ALLOWED_HOSTS = [\'*\', ] >> /etc/openstack-dashboard/local_settings.py
     
-    sed -i /^CACHES/,/^}/ /etc/openstack-dashboard/local_settings.py
+    sed -i /^CACHES/,/^}/d /etc/openstack-dashboard/local_settings.py
     echo SESSION_ENGINE = \'django.contrib.sessions.backends.cache\' >> /etc/openstack-dashboard/local_settings.py
     echo CACHES = { >> /etc/openstack-dashboard/local_settings.py
     echo \ \ \'default\':\ { >> /etc/openstack-dashboard/local_settings.py

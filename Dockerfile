@@ -8,7 +8,7 @@ ENV OPENSTACK_VERSION liberty
 ENV BUID_VERSION 2015-12-30
 
 RUN yum update -y && \
-         yum install -y openstack-dashboard && \
+         yum install -y openstack-dashboard python-memcached && \
          rm -rf /var/cache/yum/*
 
 ADD entrypoint.sh /usr/bin/entrypoint.sh

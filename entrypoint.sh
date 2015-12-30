@@ -44,7 +44,6 @@ if [ ! -f /etc/openstack-dashboard/.complete ];then
     grep ^OPENSTACK_KEYSTONE_DEFAULT_ROLE /etc/openstack-dashboard/local_settings >/dev/null 2>/dev/null
     if [ $? -eq 0 ];then
       sed -i "/^OPENSTACK_KEYSTONE_DEFAULT_ROLE/c\OPENSTACK_KEYSTONE_DEFAULT_ROLE = \"$OPENSTACK_KEYSTONE_DEFAULT_ROLE\" "  /etc/openstack-dashboard/local_settings
-      sed -i /^ALLOWED_HOSTS/d /etc/openstack-dashboard/local_settings
     else
      echo "OPENSTACK_KEYSTONE_DEFAULT_ROLE = \"$OPENSTACK_KEYSTONE_DEFAULT_ROLE\"" >> /etc/openstack-dashboard/local_settings
     fi    

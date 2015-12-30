@@ -11,10 +11,6 @@ RUN yum update -y && \
          yum install -y openstack-dashboard && \
          rm -rf /var/cache/yum/*
 
-RUN cp -rp /etc/nova/ /nova && \
-         rm -rf /etc/nova/* && \
-         rm -rf /var/log/nova/*
-
 ADD entrypoint.sh /usr/bin/entrypoint.sh
 RUN chmod +x /usr/bin/entrypoint.sh
 
